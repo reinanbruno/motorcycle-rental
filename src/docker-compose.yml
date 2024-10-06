@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15.3
+    container_name: motorcyle_postgres
+    restart: always
+    environment:
+      POSTGRES_DB: motorcycle_rental
+      POSTGRES_USER: motorcycle
+      POSTGRES_PASSWORD: M@NwlWNy&re3
+    ports:
+      - "5434:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  rabbitmq:
+    image: rabbitmq:3.11.19-management
+    container_name: motorcyle_rabbitmq
+    restart: always
+    ports:
+      - "5674:5672"
+      - "15674:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: motorcycle
+      RABBITMQ_DEFAULT_PASS: GtQ12F4pbR8
+
+  api:
+    build:
+      context: .
+      dockerfile: Api/Dockerfile
+    container_name: motorcycle_api
+    restart: always
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__Postgres: "Host=postgres;Port=5432;Database=motorcycle_rental;Username=motorcycle;Password=M@NwlWNy&re3;"
+      ConnectionStrings__RabbitMQ: "amqp://motorcycle:GtQ12F4pbR8@rabbitmq:5672/"
+    ports:
+      - "5101:8080"
+    depends_on:
+      - postgres
+      - rabbitmq
+
+  consumer:
+    build:
+      context: .
+      dockerfile: Consumer.RabbitMQ/Dockerfile
+    container_name: motorcycle_consumer_rabbitmq
+    restart: always
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__Postgres: "Host=postgres;Port=5432;Database=motorcycle_rental;Username=motorcycle;Password=M@NwlWNy&re3;"
+      ConnectionStrings__RabbitMQ: "amqp://motorcycle:GtQ12F4pbR8@rabbitmq:5672/"
+    depends_on:
+      - postgres
+      - rabbitmq
+
+volumes:
+  postgres_data:

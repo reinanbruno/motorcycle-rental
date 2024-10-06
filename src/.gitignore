@@ -1,0 +1,75 @@
+# Compiled files
+bin/
+obj/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Auto-generated files
+*.generated.cs
+
+# Log files
+*.log
+
+# Application insights config file
+ApplicationInsights.config
+
+# Visual Studio specific files
+.vscode/
+.vs/
+.vscode/*
+
+# Rider specific
+.idea/
+
+# ASP.NET temporary files
+.vscode/
+.vs/
+.vscode/*
+
+# Mac/Linux files
+.DS_Store
+*.swp
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Web project artifacts
+wwwroot/
+
+# NuGet packages
+*.nupkg
+*.snupkg
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Build results
+build/
+
+# Entity Framework Migrations
+Migrations/
+
+# Publish outputs
+.publish/
+.publish_profiles/
+
+# Stylecop
+StyleCop.Cache
+
+# Resharper
+_ReSharper*/
+
+# Rider
+.idea/
+
+# Coverlet code coverage
+coverage/
+
+# Azure Pipelines
+.azure-pipelines/
