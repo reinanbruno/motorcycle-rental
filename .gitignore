@@ -73,3 +73,5 @@ coverage/
 
 # Azure Pipelines
 .azure-pipelines/
+
+src/Api/UploadedFiles
