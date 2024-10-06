@@ -7,7 +7,7 @@
 	},
 	"item": [
 		{
-			"name": "02 - Motos",
+			"name": "01 - Motos",
 			"item": [
 				{
 					"name": "Criar moto",
@@ -143,7 +143,7 @@
 			]
 		},
 		{
-			"name": "03 - Entregadores",
+			"name": "02 - Entregadores",
 			"item": [
 				{
 					"name": "Criar entregador",
@@ -220,7 +220,7 @@
 			]
 		},
 		{
-			"name": "04 - Locação",
+			"name": "03 - Locação",
 			"item": [
 				{
 					"name": "Alugar uma moto",
