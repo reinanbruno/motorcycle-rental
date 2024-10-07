@@ -1,6 +1,6 @@
 ## 🔧 Tecnologias Utilizadas
 
-Este projeto foi desenvolvido utilizando várias tecnologias e padrões modernos para garantir uma solução robusta e escalável:
+Este projeto foi desenvolvido utilizando várias tecnologias e padrões modernos:
 
 - .NET 8
 - Hexagonal Architecture
