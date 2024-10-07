@@ -21,11 +21,10 @@ Este projeto foi desenvolvido utilizando várias tecnologias e padrões modernos
 Siga as instruções abaixo para rodar a aplicação localmente:
 
 ```bash
-# Certifique-se de ter o Docker instalado em sua máquina
+# Certifique-se de ter o Docker instalado em sua máquina e execute os comandos abaixo no terminal
 
 $ cd src
 $ docker-compose up -d
- How to run the application?
 
 ```
 
