@@ -1,6 +1,7 @@
-# Motorcycle rental
+## 🔧 Tecnologias Utilizadas
 
-### :white_check_mark: Technologies used:
+Este projeto foi desenvolvido utilizando várias tecnologias e padrões modernos para garantir uma solução robusta e escalável:
+
 - .NET 8
 - Hexagonal Architecture
 - UnitOfWork
@@ -15,16 +16,27 @@
 - Bogus
 - Moq.AutoMocker
 
-## :computer: How to run the application?
+## ✨ Funcionalidades
+
+- Cadastro de motos e clientes
+- Controle de reservas e aluguéis
+- Integração com mensageria para notificações
+- Testes automatizados e validador de regras de negócio
+ 
+## 🚀 Executando a Aplicação
+
+Siga as instruções abaixo para rodar a aplicação localmente:
 
 ```bash
-# Before executing the commands below you will need the docker installed on your machine
+# Certifique-se de ter o Docker instalado em sua máquina
 
 $ cd src
 $ docker-compose up -d
+ How to run the application?
+
 ```
 
-### Each project will be executed in its url:
+### URL do serviço:
 - Motorcycle Rental Service(http://localhost:5101/swagger)
   
 <table>
@@ -34,6 +46,8 @@ $ docker-compose up -d
 </table>
 
 ## :camera: Postman:
+- [Environment](https://github.com/reinanbruno/motorcycle-rental/blob/main/postman/API%20de%20aluguel%20de%20motos%20-%20Local.postman_environment.json)
+- [Collection](https://github.com/reinanbruno/motorcycle-rental/blob/main/postman/API%20de%20aluguel%20de%20motos.postman_collection.json)
 
 <table>
   <tr>
