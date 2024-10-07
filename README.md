@@ -15,13 +15,6 @@ Este projeto foi desenvolvido utilizando várias tecnologias e padrões modernos
 - XUnit
 - Bogus
 - Moq.AutoMocker
-
-## ✨ Funcionalidades
-
-- Cadastro de motos e clientes
-- Controle de reservas e aluguéis
-- Integração com mensageria para notificações
-- Testes automatizados e validador de regras de negócio
  
 ## 🚀 Executando a Aplicação
 
