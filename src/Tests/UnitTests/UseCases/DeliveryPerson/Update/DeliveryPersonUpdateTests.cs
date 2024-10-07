@@ -1,5 +1,4 @@
 ﻿using Application.UseCases.Base;
-using Application.UseCases.DeliveryPerson.Create;
 using Application.UseCases.DeliveryPerson.Update;
 using AutoBogus;
 using Domain.Repositories;

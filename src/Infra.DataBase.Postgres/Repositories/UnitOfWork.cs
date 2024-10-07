@@ -20,6 +20,7 @@ namespace Infra.DataBase.Postgres.Repositories
         public void Dispose()
         {
             _context?.Dispose();
+            GC.SuppressFinalize(this);
         }
     }
 }

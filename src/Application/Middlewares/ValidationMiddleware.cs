@@ -1,6 +1,6 @@
-﻿using FluentValidation;
+﻿using Application.UseCases.Base;
+using FluentValidation;
 using MediatR;
-using Application.UseCases.Base;
 using System.Net;
 
 namespace Application.Middlewares

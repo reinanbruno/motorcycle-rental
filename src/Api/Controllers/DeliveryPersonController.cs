@@ -1,10 +1,9 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Mvc;
+﻿using Api.Controllers;
 using Application.UseCases.Base;
 using Application.UseCases.DeliveryPerson.Create;
 using Application.UseCases.DeliveryPerson.Update;
-using Application.UseCases.Motorcycle.Create;
-using Api.Controllers;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Controllers
 {
@@ -35,7 +34,7 @@ namespace Controllers
         }
 
         /// <summary>
-        /// Cadastrar entregador
+        /// Enviar foto da CNH
         /// </summary>
         [HttpPost("{id}/cnh")]
         [ProducesResponseType(StatusCodes.Status200OK)]

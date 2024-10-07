@@ -1,10 +1,10 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Domain.Repositories;
+using Infra.DataBase.Postgres.Context;
+using Infra.DataBase.Postgres.Repositories;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Domain.Repositories;
-using Infra.DataBase.Postgres.Context;
-using Infra.DataBase.Postgres.Repositories;
 
 namespace Infra.DataBase.Postgres
 {

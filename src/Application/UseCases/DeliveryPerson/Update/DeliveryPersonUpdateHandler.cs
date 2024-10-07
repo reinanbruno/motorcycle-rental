@@ -1,7 +1,7 @@
-﻿using MediatR;
-using Application.UseCases.Base;
+﻿using Application.UseCases.Base;
 using Domain.Repositories;
 using Domain.Services;
+using MediatR;
 using System.Net;
 
 namespace Application.UseCases.DeliveryPerson.Update

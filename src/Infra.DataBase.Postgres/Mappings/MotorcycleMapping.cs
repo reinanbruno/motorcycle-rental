@@ -1,6 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Domain.Entities;
 
 namespace Infra.DataBase.Postgres.Mappings
 {
@@ -24,7 +24,7 @@ namespace Infra.DataBase.Postgres.Mappings
                 .Property(e => e.Model)
                 .IsRequired()
                 .HasMaxLength(50);
-            
+
             builder
                 .Property(e => e.FabricationYear)
                 .IsRequired();

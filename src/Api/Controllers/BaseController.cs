@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Application.UseCases.Base;
+﻿using Application.UseCases.Base;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Api.Controllers
 {

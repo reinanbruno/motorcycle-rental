@@ -1,5 +1,5 @@
-﻿using MediatR;
-using Application.UseCases.Base;
+﻿using Application.UseCases.Base;
+using MediatR;
 
 namespace Application.UseCases.Rental.List
 {

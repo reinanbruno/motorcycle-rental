@@ -3,7 +3,7 @@
 namespace Application.UseCases.Base
 {
     public class CustomResponseMessage
-    {        
+    {
         [JsonPropertyName("mensagem")]
         public string Message { get; set; }
 
@@ -11,7 +11,7 @@ namespace Application.UseCases.Base
         {
             return new List<CustomResponseMessage>
             {
-                new CustomResponseMessage 
+                new CustomResponseMessage
                 {
                     Message = message
                 }

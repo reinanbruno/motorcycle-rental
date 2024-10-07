@@ -1,5 +1,5 @@
-﻿using MediatR;
-using Application.UseCases.Base;
+﻿using Application.UseCases.Base;
+using MediatR;
 using System.Text.Json.Serialization;
 
 namespace Application.UseCases.Motorcycle.Create
@@ -11,7 +11,7 @@ namespace Application.UseCases.Motorcycle.Create
 
         [JsonPropertyName("ano")]
         public int FabricationYear { get; set; }
-        
+
         [JsonPropertyName("modelo")]
         public string Model { get; set; }
 

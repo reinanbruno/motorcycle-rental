@@ -1,5 +1,4 @@
 ﻿using Application.UseCases.Base;
-using Application.UseCases.Motorcycle.Create;
 using Application.UseCases.Motorcycle.Update;
 using AutoBogus;
 using Domain.Repositories;

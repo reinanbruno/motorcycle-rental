@@ -1,5 +1,5 @@
-﻿using MediatR;
-using Application.UseCases.Base;
+﻿using Application.UseCases.Base;
+using MediatR;
 using System.Text.Json.Serialization;
 
 namespace Application.UseCases.Motorcycle.Update

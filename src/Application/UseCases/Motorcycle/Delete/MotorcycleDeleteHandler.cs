@@ -1,6 +1,6 @@
-﻿using MediatR;
-using Application.UseCases.Base;
+﻿using Application.UseCases.Base;
 using Domain.Repositories;
+using MediatR;
 using System.Net;
 
 namespace Application.UseCases.Motorcycle.Delete
@@ -30,7 +30,7 @@ namespace Application.UseCases.Motorcycle.Delete
                     Response = CustomResponseMessage.FromMessage("Identificador não localizado."),
                 };
             }
-                        
+
             if (await _rentalRepository.GetAsync(x => x.MotorcycleId == request.Id, cancellationToken) is not null)
             {
                 return new CustomResponse

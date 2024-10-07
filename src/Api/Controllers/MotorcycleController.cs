@@ -1,12 +1,12 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Mvc;
+﻿using Api.Controllers;
 using Application.UseCases.Base;
 using Application.UseCases.Motorcycle.Create;
 using Application.UseCases.Motorcycle.Delete;
 using Application.UseCases.Motorcycle.Get;
 using Application.UseCases.Motorcycle.List;
 using Application.UseCases.Motorcycle.Update;
-using Api.Controllers;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Controllers
 {

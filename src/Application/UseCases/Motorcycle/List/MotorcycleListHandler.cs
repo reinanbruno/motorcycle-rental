@@ -1,7 +1,7 @@
-﻿using MediatR;
-using Application.UseCases.Base;
+﻿using Application.UseCases.Base;
 using Application.UseCases.Motorcycle.Get;
 using Domain.Repositories;
+using MediatR;
 using System.Net;
 
 namespace Application.UseCases.Motorcycle.List
@@ -18,7 +18,7 @@ namespace Application.UseCases.Motorcycle.List
         public async Task<CustomResponse> Handle(MotorcycleListRequest request, CancellationToken cancellationToken)
         {
             IEnumerable<Domain.Entities.Motorcycle> entities = await _motorcycleRepository.ListAsync(x => x.Plate == request.Plate, cancellationToken);
-            
+
             return new CustomResponse
             {
                 Success = true,

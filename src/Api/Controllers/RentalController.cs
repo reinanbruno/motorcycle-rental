@@ -1,11 +1,10 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Mvc;
+﻿using Api.Controllers;
 using Application.UseCases.Base;
-using Application.UseCases.DeliveryPerson.Create;
 using Application.UseCases.Rental.Create;
 using Application.UseCases.Rental.List;
 using Application.UseCases.Rental.Update;
-using Api.Controllers;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Controllers
 {

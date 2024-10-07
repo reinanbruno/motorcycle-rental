@@ -1,8 +1,8 @@
-﻿using MediatR;
-using Application.UseCases.Base;
-using Domain.Repositories;
-using System.Net;
+﻿using Application.UseCases.Base;
 using Domain.Adapters;
+using Domain.Repositories;
+using MediatR;
+using System.Net;
 
 namespace Application.UseCases.Motorcycle.Create
 {
@@ -21,7 +21,13 @@ namespace Application.UseCases.Motorcycle.Create
 
         public async Task<CustomResponse> Handle(MotorcycleCreateRequest request, CancellationToken cancellationToken)
         {
-            if (await _motorcycleRepository.GetAsync(x => x.Id == request.Id, cancellationToken) is not null)
+            Domain.Entities.Motorcycle motorcycle = await _motorcycleRepository.GetAsync(x => 
+                x.Id == request.Id ||
+                x.Plate == request.Plate, 
+                cancellationToken
+            );
+
+            if (motorcycle?.Id == request.Id)
             {
                 return new CustomResponse
                 {
@@ -31,7 +37,7 @@ namespace Application.UseCases.Motorcycle.Create
                 };
             }
 
-            if (await _motorcycleRepository.GetAsync(x => x.Plate == request.Plate, cancellationToken) is not null)
+            if (motorcycle?.Plate == request.Plate)
             {
                 return new CustomResponse
                 {

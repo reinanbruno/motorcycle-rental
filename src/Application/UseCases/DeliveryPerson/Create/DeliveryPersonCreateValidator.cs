@@ -1,5 +1,5 @@
-﻿using FluentValidation;
-using Application.Extensions.Validators;
+﻿using Application.Extensions.Validators;
+using FluentValidation;
 
 namespace Application.UseCases.DeliveryPerson.Create
 {
@@ -13,7 +13,7 @@ namespace Application.UseCases.DeliveryPerson.Create
 
             RuleFor(x => x.DriverLicenseType)
                 .IsInEnum().WithMessage("Tipo de CNH inválido.");
-            
+
             RuleFor(x => x.DriverLicenseImage)
                 .ValidateBase64Image("Imagem da CNH");
 

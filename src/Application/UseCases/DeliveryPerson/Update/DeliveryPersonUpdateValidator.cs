@@ -1,5 +1,5 @@
-﻿using FluentValidation;
-using Application.Extensions.Validators;
+﻿using Application.Extensions.Validators;
+using FluentValidation;
 
 namespace Application.UseCases.DeliveryPerson.Update
 {

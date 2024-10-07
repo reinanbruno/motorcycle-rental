@@ -5,6 +5,7 @@ using Domain.Repositories;
 using FluentValidation.TestHelper;
 using Moq;
 using Moq.AutoMock;
+using System.Linq.Expressions;
 
 namespace Tests.UnitTests.UseCases.Motorcycle.Create
 {
@@ -57,11 +58,11 @@ namespace Tests.UnitTests.UseCases.Motorcycle.Create
                 .GetMock<IMotorcycleRepository>()
                 .Setup(s =>
                     s.GetAsync(
-                        x => x.Id == request.Id,
+                        It.IsAny<Expression<Func<Domain.Entities.Motorcycle, bool>>>(),
                         It.IsAny<CancellationToken>()
                     )
                 ).ReturnsAsync(motorcycle);
-            
+
             //Act
             var response = await handler.Handle(request, CancellationToken.None);
 
@@ -92,7 +93,7 @@ namespace Tests.UnitTests.UseCases.Motorcycle.Create
                 .GetMock<IMotorcycleRepository>()
                 .Setup(s =>
                     s.GetAsync(
-                        x => x.Plate == request.Plate,
+                        It.IsAny<Expression<Func<Domain.Entities.Motorcycle, bool>>>(),
                         It.IsAny<CancellationToken>()
                     )
                 ).ReturnsAsync(motorcycle);

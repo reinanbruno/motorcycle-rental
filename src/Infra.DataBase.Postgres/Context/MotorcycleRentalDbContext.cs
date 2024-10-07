@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Infra.DataBase.Postgres.Mappings;
+﻿using Infra.DataBase.Postgres.Mappings;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infra.DataBase.Postgres.Context
 {

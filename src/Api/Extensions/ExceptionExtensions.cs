@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Diagnostics;
 using Serilog;
 using System.Net;
-using System.Text;
 
 namespace Extensions
 {

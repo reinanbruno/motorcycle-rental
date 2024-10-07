@@ -1,6 +1,6 @@
-﻿using MediatR;
-using Application.UseCases.Base;
+﻿using Application.UseCases.Base;
 using Domain.Enums;
+using MediatR;
 using System.Text.Json.Serialization;
 
 namespace Application.UseCases.DeliveryPerson.Create

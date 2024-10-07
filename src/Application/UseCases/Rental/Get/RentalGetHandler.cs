@@ -1,7 +1,7 @@
-﻿using MediatR;
-using Application.UseCases.Base;
+﻿using Application.UseCases.Base;
 using Application.UseCases.Rental.Get;
 using Domain.Repositories;
+using MediatR;
 using System.Net;
 
 namespace Application.UseCases.Rental.List

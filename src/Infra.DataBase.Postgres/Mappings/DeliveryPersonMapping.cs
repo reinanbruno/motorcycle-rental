@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Domain.Entities;
+﻿using Domain.Entities;
 using Domain.Enums;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Infra.DataBase.Postgres.Mappings
 {
@@ -27,7 +27,7 @@ namespace Infra.DataBase.Postgres.Mappings
                 .HasConversion(
                     v => v.ToString(),
                     v => Enum.Parse<DriverLicenseType>(v)
-                ); 
+                );
 
             builder
                 .Property(e => e.DriverLicenseNumber)
@@ -43,7 +43,7 @@ namespace Infra.DataBase.Postgres.Mappings
                 .Property(e => e.Name)
                 .IsRequired()
                 .HasMaxLength(100);
-            
+
             builder
                 .Property(e => e.Document)
                 .IsRequired()

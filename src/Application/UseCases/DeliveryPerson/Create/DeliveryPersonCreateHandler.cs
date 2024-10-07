@@ -1,7 +1,7 @@
-﻿using MediatR;
-using Application.UseCases.Base;
+﻿using Application.UseCases.Base;
 using Domain.Repositories;
 using Domain.Services;
+using MediatR;
 using System.Net;
 
 namespace Application.UseCases.DeliveryPerson.Create
@@ -21,7 +21,14 @@ namespace Application.UseCases.DeliveryPerson.Create
 
         public async Task<CustomResponse> Handle(DeliveryPersonCreateRequest request, CancellationToken cancellationToken)
         {
-            if (await _deliveryPersonRepository.GetAsync(x => x.Id == request.Id, cancellationToken) is not null)
+            Domain.Entities.DeliveryPerson deliveryPerson = await _deliveryPersonRepository.GetAsync(x => 
+                x.Id == request.Id ||
+                x.DriverLicenseNumber == request.DriverLicenseNumber ||
+                x.Document == request.Document, 
+                cancellationToken
+            );
+
+            if (deliveryPerson?.Id == request.Id)
             {
                 return new CustomResponse
                 {
@@ -31,7 +38,7 @@ namespace Application.UseCases.DeliveryPerson.Create
                 };
             }
 
-            if (await _deliveryPersonRepository.GetAsync(x => x.DriverLicenseNumber == request.DriverLicenseNumber, cancellationToken) is not null)
+            if (deliveryPerson?.DriverLicenseNumber == request.DriverLicenseNumber)
             {
                 return new CustomResponse
                 {
@@ -41,7 +48,7 @@ namespace Application.UseCases.DeliveryPerson.Create
                 };
             }
 
-            if (await _deliveryPersonRepository.GetAsync(x => x.Document == request.Document, cancellationToken) is not null)
+            if (deliveryPerson?.Document == request.Document)
             {
                 return new CustomResponse
                 {

@@ -1,6 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Domain.Entities;
 
 namespace Infra.DataBase.Postgres.Mappings
 {
@@ -19,12 +19,12 @@ namespace Infra.DataBase.Postgres.Mappings
                .Property(e => e.StartDate)
                .IsRequired()
                .HasColumnType("timestamp without time zone");
-            
+
             builder
                .Property(e => e.EndDate)
                .IsRequired()
                .HasColumnType("timestamp without time zone");
-            
+
             builder
                .Property(e => e.ExpectedEndDate)
                .IsRequired()

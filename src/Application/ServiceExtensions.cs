@@ -1,9 +1,9 @@
-﻿using FluentValidation;
-using MediatR;
-using Microsoft.Extensions.DependencyInjection;
-using Application.Middlewares;
+﻿using Application.Middlewares;
 using Application.Services;
 using Domain.Services;
+using FluentValidation;
+using MediatR;
+using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
 namespace Application

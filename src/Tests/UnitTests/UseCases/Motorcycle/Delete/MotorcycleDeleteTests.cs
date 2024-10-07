@@ -1,6 +1,5 @@
 ﻿using Application.UseCases.Base;
 using Application.UseCases.Motorcycle.Delete;
-using Application.UseCases.Motorcycle.Update;
 using AutoBogus;
 using Domain.Repositories;
 using Moq;

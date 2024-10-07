@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Domain.Entities;
+﻿using Domain.Entities;
 using Domain.Repositories;
 using Infra.DataBase.Postgres.Context;
+using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
 namespace Infra.DataBase.Postgres.Repositories
@@ -56,6 +56,7 @@ namespace Infra.DataBase.Postgres.Repositories
         public void Dispose()
         {
             _context?.Dispose();
+            GC.SuppressFinalize(this);
         }
     }
 }

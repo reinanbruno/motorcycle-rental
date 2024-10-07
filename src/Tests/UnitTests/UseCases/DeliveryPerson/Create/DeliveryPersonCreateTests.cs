@@ -8,13 +8,14 @@ using Domain.Services;
 using FluentValidation.TestHelper;
 using Moq;
 using Moq.AutoMock;
+using System.Linq.Expressions;
 
 namespace Tests.UnitTests.UseCases.DeliveryPerson.Create
 {
     public class DeliveryPersonCreateTests
     {
         private const string _driverLicenseImage = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUA\r\nAAAAFCAIAAAoXIZ2AAAAEElEQVR42mP8//8";
-        
+
         [Fact]
         public async void DeliveryPersonCreate_Valid_MustSuccess()
         {
@@ -72,7 +73,7 @@ namespace Tests.UnitTests.UseCases.DeliveryPerson.Create
                 .GetMock<IDeliveryPersonRepository>()
                 .Setup(s =>
                     s.GetAsync(
-                        x => x.Id == request.Id,
+                        It.IsAny<Expression<Func<Domain.Entities.DeliveryPerson, bool>>>(),
                         It.IsAny<CancellationToken>()
                     )
                 ).ReturnsAsync(deliveryPerson);
@@ -84,6 +85,43 @@ namespace Tests.UnitTests.UseCases.DeliveryPerson.Create
             var customResponseMessages = response.Response as List<CustomResponseMessage>;
             Assert.False(response.Success);
             Assert.Contains(customResponseMessages, c => c.Message == "Esse identificador já está em uso.");
+        }
+
+        [Fact]
+        public async void DeliveryPersonCreate_DriverLicenseNumberExists_MustFail()
+        {
+            //Arrange
+            var autoMocker = new AutoMocker();
+            var handler = autoMocker.CreateInstance<DeliveryPersonCreateHandler>();
+
+            var request = new AutoFaker<DeliveryPersonCreateRequest>()
+              .RuleFor(a => a.Name, b => b.Person.FirstName)
+              .RuleFor(a => a.DriverLicenseType, b => DriverLicenseType.A)
+              .RuleFor(a => a.DriverLicenseNumber, b => b.Random.String2(11))
+              .RuleFor(a => a.DriverLicenseImage, b => _driverLicenseImage)
+              .RuleFor(a => a.Document, b => b.Company.Cnpj(false))
+              .Generate();
+
+            var deliveryPerson = new AutoFaker<Domain.Entities.DeliveryPerson>()
+              .RuleFor(a => a.DriverLicenseNumber, b => request.DriverLicenseNumber)
+              .Generate();
+
+            autoMocker
+                .GetMock<IDeliveryPersonRepository>()
+                .Setup(s =>
+                    s.GetAsync(
+                        It.IsAny<Expression<Func<Domain.Entities.DeliveryPerson, bool>>>(),
+                        It.IsAny<CancellationToken>()
+                    )
+                ).ReturnsAsync(deliveryPerson);
+
+            //Act
+            var response = await handler.Handle(request, CancellationToken.None);
+
+            //Assert
+            var customResponseMessages = response.Response as List<CustomResponseMessage>;
+            Assert.False(response.Success);
+            Assert.Contains(customResponseMessages, c => c.Message == "Esse número da CNH já está em uso.");
         }
 
         [Fact]
@@ -101,13 +139,26 @@ namespace Tests.UnitTests.UseCases.DeliveryPerson.Create
               .RuleFor(a => a.Document, b => b.Company.Cnpj(false))
               .Generate();
 
+            var deliveryPerson = new AutoFaker<Domain.Entities.DeliveryPerson>()
+              .RuleFor(a => a.Document, b => request.Document)
+              .Generate();
+
+            autoMocker
+                .GetMock<IDeliveryPersonRepository>()
+                .Setup(s =>
+                    s.GetAsync(
+                        It.IsAny<Expression<Func<Domain.Entities.DeliveryPerson, bool>>>(),
+                        It.IsAny<CancellationToken>()
+                    )
+                ).ReturnsAsync(deliveryPerson);
+
             //Act
             var response = await handler.Handle(request, CancellationToken.None);
 
             //Assert
             var customResponseMessages = response.Response as List<CustomResponseMessage>;
             Assert.False(response.Success);
-            Assert.Contains(customResponseMessages, c => c.Message == "Houve um erro ao realizar upload da imagem.");
+            Assert.Contains(customResponseMessages, c => c.Message == "Esse CNPJ já está em uso.");
         }
 
         [Fact]

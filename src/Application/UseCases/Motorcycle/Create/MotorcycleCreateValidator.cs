@@ -9,7 +9,7 @@ namespace Application.UseCases.Motorcycle.Create
             RuleFor(x => x.Model)
                 .NotEmpty().WithMessage("Modelo é obrigatório.")
                 .MaximumLength(50).WithMessage("Tamanho máximo do modelo é 50 caracteres.");
-            
+
             RuleFor(x => x.Plate)
                 .NotEmpty().WithMessage("Placa é obrigatória.")
                 .Matches("^[a-zA-Z0-9]*$").WithMessage("A placa deve conter apenas letras e números.")

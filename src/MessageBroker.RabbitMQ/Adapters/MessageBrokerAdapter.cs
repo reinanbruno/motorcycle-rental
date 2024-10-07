@@ -45,7 +45,7 @@ namespace MessageBroker.RabbitMQ.Services
                 catch (Exception ex)
                 {
                     Log.Error(ex, "Erro ao tentar se conectar no RabbitMQ");
-                    Thread.Sleep(5000); 
+                    Task.Delay(5000);
                 }
             }
         }

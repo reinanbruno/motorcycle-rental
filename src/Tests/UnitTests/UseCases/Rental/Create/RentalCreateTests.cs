@@ -1,5 +1,4 @@
 ﻿using Application.UseCases.Base;
-using Application.UseCases.Motorcycle.Create;
 using Application.UseCases.Rental.Create;
 using AutoBogus;
 using Domain.Enums;

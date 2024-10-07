@@ -24,7 +24,7 @@ namespace Application.UseCases.Rental.Get
 
         [JsonPropertyName("data_previsao_termino")]
         public DateTime ExpectedEndDate { get; set; }
-        
+
         [JsonPropertyName("data_devolucao")]
         public DateTime? ReturnDate { get; set; }
 

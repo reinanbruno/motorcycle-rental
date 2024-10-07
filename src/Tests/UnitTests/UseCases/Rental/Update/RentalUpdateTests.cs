@@ -1,5 +1,4 @@
 ﻿using Application.UseCases.Base;
-using Application.UseCases.Rental.Create;
 using Application.UseCases.Rental.Update;
 using AutoBogus;
 using Domain.Repositories;
